@@ -1,0 +1,29 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>List tasks</h4>
+    </div>
+
+    <br>
+    
+    <table class="table ">
+        <tr>
+            <th>ID</th>
+            <th>Task Name</th>
+            <th>Description</th>  
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th width="220px">Action</th>
+        </tr>
+        <tr *ngFor="let task of task">
+            <td>{{ task.id }}</td>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.start_date }}</td>
+            <td>{{ task.end_date }}</td>
+            <td>
+            <a href="#" [routerLink]="['/task/', 'edit', task.id  ]" class="btn btn-primary">Edit</a>
+            </td>
+        </tr>
+    </table>
+ </section>

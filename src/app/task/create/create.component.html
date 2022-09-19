@@ -1,0 +1,68 @@
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>Form Task</h4>
+      <a href="#" routerLink="/task/index" class="btn btn-primaryt">Back</a>
+    </div>
+  
+    <hr/>
+  
+    <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="title">Task Name:</label>
+                <input
+                    formControlName="title"
+                    id="title"
+                    type="text"
+                    class="form-control">
+                <div *ngIf="f.title.touched && f.title.invalid" class="alert alert-danger">
+                    <div *ngIf="f.title.errors.required">*Task name is required.</div>
+                </div>
+            </div>
+        </div>
+  
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="description">Description:</label>
+                <input
+                    formControlName="description"
+                    id="description"
+                    type="text"
+                    class="form-control">
+                <div *ngIf="f.description.touched && f.description.invalid" class="alert alert-danger">
+                    <div *ngIf="f.description.errors.required">*Description is required.</div>
+                </div>
+            </div>
+        </div>
+  
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="start_date">Start Date:</label>
+                <input
+                    formControlName="start_date"
+                    id="start_date"
+                    type="date"
+                    class="form-control">
+                <div *ngIf="f.start_date.touched && f.start_date.invalid" class="alert alert-danger">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="end_date">End Date:</label>
+                <input
+                formControlName="end_date"
+                id="end_date"
+                type="text"
+                class="form-control">
+                <div *ngIf="f.end_date.touched && f.end_date.invalid" class="alert alert-danger">
+                </div>
+            </div>
+        </div>
+  
+          <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+  </div>

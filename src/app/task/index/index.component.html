@@ -1,0 +1,30 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>List tasks</h4>
+      <a routerLink="/task/create" class="btn btn-success">Create New Task</a>
+    </div>
+
+    <br>
+    
+    <table class="table ">
+        <tr>
+            <th>ID</th>
+            <th>Task Name</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th width="220px">Action</th>
+        </tr>
+        <tr *ngFor="let task of task">
+            <td>{{ task.id }}</td>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.start_date }}</td>
+            <td>{{ task.end_date }}</td>
+            <td>
+            <button type="button" (click)="delete(task.id)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </table>
+ </section>

@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="d-flex justify-content-between">
+      <h4>Edit task</h4>
+      <a href="#" routerLink="/task/user" class="btn btn-primaryt">Back</a>
+    </div>
+
+    <hr>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="title">Task Name:</label>
+              <input
+                formControlName="title"
+                [(ngModel)]="task.title"
+                id="title"
+                type="text"
+                class="form-control">
+              <div *ngIf="f.title.touched && f.title.invalid" class="alert alert-danger">
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="description">Description:</label>
+                <input
+                    formControlName="description"
+                    [(ngModel)]="task.description"
+                    id="description"
+                    type="text"
+                    class="form-control">
+                <div *ngIf="f.description.touched && f.description.invalid" class="alert alert-danger">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="days">Days:</label>
+                <input
+                formControlName="days"
+                [(ngModel)]="task.days"
+                id="days"
+                type="number"
+                class="form-control">
+                <div *ngIf="f.days.touched && f.days.invalid" class="alert alert-danger">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="start_date">Start Date:</label>
+                <input
+                    [(ngModel)]="task.start_date"
+                    formControlName="start_date"
+                    id="start_date"
+                    type="date"
+                    class="form-control">
+                <div *ngIf="f.start_date.touched && f.start_date.invalid" class="alert alert-danger">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="end_date">End Date:</label>
+                <input
+                [(ngModel)]="task.end_date"
+                formControlName="end_date"
+                id="end_date"
+                type="text"
+                class="form-control">
+                <div *ngIf="f.end_date.touched && f.end_date.invalid" class="alert alert-danger">
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>
